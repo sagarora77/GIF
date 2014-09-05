@@ -54,7 +54,7 @@ class CameraViewController: UIViewController, PreviewViewDelegate, SCRecorderDel
     lazy var numberFormatter: NSNumberFormatter = {
         let formatter = NSNumberFormatter()
         formatter.numberStyle = NSNumberFormatterStyle.DecimalStyle
-        formatter.minimumFractionDigits = 2
+        formatter.minimumFractionDigits = 1
         formatter.maximumFractionDigits = formatter.minimumFractionDigits
         return formatter
         }();
@@ -94,12 +94,15 @@ class CameraViewController: UIViewController, PreviewViewDelegate, SCRecorderDel
     @IBOutlet weak var changeCameraButton: UIButton!
     @IBOutlet weak var saveButton: UIButton!
     @IBOutlet weak var progressView: ProgressView!
+    @IBOutlet weak var titleLabel: UILabel!
     
     //MARK: Lifecycle
     
     override func viewDidLoad() {
         
         super.viewDidLoad()
+        
+        titleLabel.font = UIFont(name: "Lato-Light", size: 24.0)
         
         closeButton.setAttributedTitle(closeIcon.attributedString(), forState: UIControlState.Normal)
         
@@ -167,7 +170,18 @@ class CameraViewController: UIViewController, PreviewViewDelegate, SCRecorderDel
     
     func updateUI() {
         progressView.progress = elapsedPercent
-        saveButton.enabled = elapsedTime > 0.0
+        
+        let hasCaptured = elapsedTime > 0.0
+        
+        saveButton.enabled = hasCaptured
+        
+        if hasCaptured {
+            titleLabel.text = numberFormatter.stringFromNumber(elapsedTime) + " seconds"
+        }
+        else {
+            titleLabel.text = "Tap + Hold to Record"
+        }
+
     }
     
     //MARK: Preview Delegate

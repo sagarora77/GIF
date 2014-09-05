@@ -13,6 +13,7 @@
 		B8254DBE19B9829100BFDCD9 /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8254DBD19B9829100BFDCD9 /* ProgressView.swift */; };
 		B8254DC019B985D500BFDCD9 /* PreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8254DBF19B985D500BFDCD9 /* PreviewView.swift */; };
 		B8254DC419B995D600BFDCD9 /* Lato-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B8254DC319B995D600BFDCD9 /* Lato-Regular.ttf */; };
+		B829D7BD19BA78110027327A /* Lato-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B829D7BC19BA78110027327A /* Lato-Light.ttf */; };
 		B82F564519B9303800AF422E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82F564419B9303800AF422E /* AppDelegate.swift */; };
 		B82F564719B9303800AF422E /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82F564619B9303800AF422E /* ListViewController.swift */; };
 		B82F564A19B9303800AF422E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B82F564819B9303800AF422E /* Main.storyboard */; };
@@ -31,6 +32,7 @@
 		B8254DBD19B9829100BFDCD9 /* ProgressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressView.swift; sourceTree = "<group>"; };
 		B8254DBF19B985D500BFDCD9 /* PreviewView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviewView.swift; sourceTree = "<group>"; };
 		B8254DC319B995D600BFDCD9 /* Lato-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Regular.ttf"; sourceTree = "<group>"; };
+		B829D7BC19BA78110027327A /* Lato-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Light.ttf"; sourceTree = "<group>"; };
 		B82F563F19B9303800AF422E /* GIF.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GIF.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B82F564319B9303800AF422E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B82F564419B9303800AF422E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -152,6 +154,7 @@
 		B82F564219B9303800AF422E /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				B829D7BC19BA78110027327A /* Lato-Light.ttf */,
 				B8254DC319B995D600BFDCD9 /* Lato-Regular.ttf */,
 				B82F564B19B9303800AF422E /* Images.xcassets */,
 				B82F564319B9303800AF422E /* Info.plist */,
@@ -250,6 +253,7 @@
 				B82F564A19B9303800AF422E /* Main.storyboard in Resources */,
 				B8254DC419B995D600BFDCD9 /* Lato-Regular.ttf in Resources */,
 				B8254DBC19B968E300BFDCD9 /* CameraViewController.xib in Resources */,
+				B829D7BD19BA78110027327A /* Lato-Light.ttf in Resources */,
 				B8254DB419B9664000BFDCD9 /* Localizable.strings in Resources */,
 				B82F564C19B9303800AF422E /* Images.xcassets in Resources */,
 			);
