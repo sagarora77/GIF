@@ -1,0 +1,36 @@
+PODS:
+  - AcknowledgementsBundle (0.0.1)
+  - FontAwesomeKit (2.1.7):
+    - FontAwesomeKit/Core
+    - FontAwesomeKit/FontAwesome
+    - FontAwesomeKit/FoundationIcons
+    - FontAwesomeKit/IonIcons
+    - FontAwesomeKit/Zocial
+  - FontAwesomeKit/Core (2.1.7)
+  - FontAwesomeKit/FontAwesome (2.1.7):
+    - FontAwesomeKit/Core
+  - FontAwesomeKit/FoundationIcons (2.1.7):
+    - FontAwesomeKit/Core
+  - FontAwesomeKit/IonIcons (2.1.7):
+    - FontAwesomeKit/Core
+  - FontAwesomeKit/Zocial (2.1.7):
+    - FontAwesomeKit/Core
+  - SCRecorder (2.0.14)
+  - SSPullToRefresh (1.2.0)
+  - StandardPaths (1.5.6)
+
+DEPENDENCIES:
+  - AcknowledgementsBundle (~> 0.0)
+  - FontAwesomeKit (~> 2.1)
+  - SCRecorder (~> 2.0)
+  - SSPullToRefresh (~> 1.2)
+  - StandardPaths (~> 1.5)
+
+SPEC CHECKSUMS:
+  AcknowledgementsBundle: feacb138b93fd8b652b633a5582cb8e3b55194ed
+  FontAwesomeKit: af6eef70d23986349284d2feb4e959459621587d
+  SCRecorder: 4f7f0d57458668c60d53e70fe89019a1580595fb
+  SSPullToRefresh: bb513a1ccbf08fdd67e4139bc1bbe3fc2ed34228
+  StandardPaths: 009f9c1699e26e46b2fb1a46b8bacc693d34460e
+
+COCOAPODS: 0.33.1

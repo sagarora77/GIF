@@ -1,0 +1,5 @@
+#include "Pods-KoaPullToRefresh.xcconfig"
+GCC_PREPROCESSOR_DEFINITIONS = COCOAPODS=1
+HEADER_SEARCH_PATHS = "${PODS_ROOT}/BuildHeaders" "${PODS_ROOT}/BuildHeaders/KoaPullToRefresh" "${PODS_ROOT}/Headers" "${PODS_ROOT}/Headers/AcknowledgementsBundle" "${PODS_ROOT}/Headers/FontAwesome+iOS" "${PODS_ROOT}/Headers/KoaPullToRefresh" "${PODS_ROOT}/Headers/StandardPaths"
+OTHER_LDFLAGS = -ObjC ${PODS_KOAPULLTOREFRESH_OTHER_LDFLAGS}
+PODS_ROOT = ${SRCROOT}

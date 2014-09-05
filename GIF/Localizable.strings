@@ -1,0 +1,10 @@
+/* 
+  Localizable.strings
+  GIF
+
+  Created by Nick Lee on 9/4/14.
+  Copyright (c) 2014 Nicholas Lee Designs, LLC. All rights reserved.
+*/
+
+"Pull down to refresh" = "pull down to make a gif";
+"Release to refresh" = "release to make a gif";
