@@ -56,9 +56,6 @@
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G6p-El-5Cn" customClass="ProgressView" customModule="GIF" customModuleProvider="target">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                            <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                                <rect key="frame" x="0.0" y="185" width="400" height="15"/>
-                                            </variation>
                                         </view>
                                     </subviews>
                                     <constraints>
@@ -90,14 +87,26 @@
                                         </mask>
                                     </variation>
                                 </view>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="15" id="pXe-uO-gPk"/>
+                                </constraints>
                                 <vibrancyEffect>
                                     <blurEffect style="dark"/>
                                 </vibrancyEffect>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="pXe-uO-gPk"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="pXe-uO-gPk"/>
+                                    </mask>
+                                </variation>
                             </visualEffectView>
                         </subviews>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="QEs-HJ-sbR" secondAttribute="bottom" id="9ET-Gh-VTM"/>
-                            <constraint firstItem="QEs-HJ-sbR" firstAttribute="top" secondItem="cGe-oB-jGi" secondAttribute="top" id="L3h-Za-v5W"/>
                             <constraint firstItem="QEs-HJ-sbR" firstAttribute="leading" secondItem="cGe-oB-jGi" secondAttribute="leading" id="tl6-dK-5c5"/>
                             <constraint firstAttribute="trailing" secondItem="QEs-HJ-sbR" secondAttribute="trailing" id="zSr-Fl-suC"/>
                         </constraints>
@@ -107,7 +116,6 @@
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="9ET-Gh-VTM"/>
-                                <exclude reference="L3h-Za-v5W"/>
                                 <exclude reference="tl6-dK-5c5"/>
                                 <exclude reference="zSr-Fl-suC"/>
                             </mask>
@@ -118,7 +126,6 @@
                             </mask>
                             <mask key="constraints">
                                 <include reference="9ET-Gh-VTM"/>
-                                <include reference="L3h-Za-v5W"/>
                                 <include reference="tl6-dK-5c5"/>
                                 <include reference="zSr-Fl-suC"/>
                             </mask>
