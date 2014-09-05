@@ -12,7 +12,6 @@
                 <outlet property="previewView" destination="B7o-QE-RbJ" id="MQv-oe-0xV"/>
                 <outlet property="progressView" destination="G6p-El-5Cn" id="10m-iO-bZb"/>
                 <outlet property="saveButton" destination="3aM-ne-4JQ" id="m4l-m5-rPY"/>
-                <outlet property="timeLabel" destination="g06-9X-55v" id="irE-dd-vxS"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -54,49 +53,26 @@
                                     <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g06-9X-55v">
-                                            <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
-                                            <fontDescription key="fontDescription" name="OriyaSangamMN" family="Oriya Sangam MN" pointSize="17"/>
-                                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G6p-El-5Cn" customClass="ProgressView" customModule="GIF" customModuleProvider="target">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="15" id="OMg-fa-QeG"/>
-                                            </constraints>
-                                            <variation key="default">
-                                                <mask key="constraints">
-                                                    <exclude reference="OMg-fa-QeG"/>
-                                                </mask>
-                                            </variation>
-                                            <variation key="heightClass=regular-widthClass=compact">
-                                                <mask key="constraints">
-                                                    <include reference="OMg-fa-QeG"/>
-                                                </mask>
+                                            <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                                <rect key="frame" x="0.0" y="185" width="400" height="15"/>
                                             </variation>
                                         </view>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="trailing" secondItem="g06-9X-55v" secondAttribute="trailing" id="Mp9-ah-MGO"/>
+                                        <constraint firstItem="G6p-El-5Cn" firstAttribute="top" secondItem="AAl-vn-X4Y" secondAttribute="top" id="0CQ-SF-FHd"/>
                                         <constraint firstAttribute="trailing" secondItem="G6p-El-5Cn" secondAttribute="trailing" id="OQ3-0i-VnE"/>
                                         <constraint firstAttribute="bottom" secondItem="G6p-El-5Cn" secondAttribute="bottom" id="VOD-Yh-8Ae"/>
-                                        <constraint firstItem="g06-9X-55v" firstAttribute="top" secondItem="AAl-vn-X4Y" secondAttribute="top" id="Z5C-Hr-Tja"/>
                                         <constraint firstItem="G6p-El-5Cn" firstAttribute="leading" secondItem="AAl-vn-X4Y" secondAttribute="leading" id="ait-gC-4bd"/>
-                                        <constraint firstAttribute="bottom" secondItem="g06-9X-55v" secondAttribute="bottom" id="inl-ij-kkq"/>
-                                        <constraint firstItem="g06-9X-55v" firstAttribute="leading" secondItem="AAl-vn-X4Y" secondAttribute="leading" id="rwP-t4-77d"/>
                                     </constraints>
                                     <variation key="default">
                                         <mask key="subviews">
-                                            <exclude reference="g06-9X-55v"/>
                                             <exclude reference="G6p-El-5Cn"/>
                                         </mask>
                                         <mask key="constraints">
-                                            <exclude reference="Mp9-ah-MGO"/>
-                                            <exclude reference="Z5C-Hr-Tja"/>
-                                            <exclude reference="inl-ij-kkq"/>
-                                            <exclude reference="rwP-t4-77d"/>
+                                            <exclude reference="0CQ-SF-FHd"/>
                                             <exclude reference="OQ3-0i-VnE"/>
                                             <exclude reference="VOD-Yh-8Ae"/>
                                             <exclude reference="ait-gC-4bd"/>
@@ -104,14 +80,10 @@
                                     </variation>
                                     <variation key="heightClass=regular-widthClass=compact">
                                         <mask key="subviews">
-                                            <include reference="g06-9X-55v"/>
                                             <include reference="G6p-El-5Cn"/>
                                         </mask>
                                         <mask key="constraints">
-                                            <include reference="Mp9-ah-MGO"/>
-                                            <include reference="Z5C-Hr-Tja"/>
-                                            <include reference="inl-ij-kkq"/>
-                                            <include reference="rwP-t4-77d"/>
+                                            <include reference="0CQ-SF-FHd"/>
                                             <include reference="OQ3-0i-VnE"/>
                                             <include reference="VOD-Yh-8Ae"/>
                                             <include reference="ait-gC-4bd"/>
@@ -280,6 +252,10 @@
                     <exclude reference="dlT-Cx-RkD"/>
                 </mask>
                 <mask key="constraints">
+                    <exclude reference="2Go-US-uTg"/>
+                    <exclude reference="f9z-AY-YfZ"/>
+                    <exclude reference="pRa-C3-c6H"/>
+                    <exclude reference="yXc-bQ-Tx4"/>
                     <exclude reference="7LG-fq-ALj"/>
                     <exclude reference="eT6-MR-wxx"/>
                     <exclude reference="fLX-U1-vKh"/>
@@ -287,10 +263,6 @@
                     <exclude reference="VVN-sk-FuG"/>
                     <exclude reference="Vcb-Fj-IJC"/>
                     <exclude reference="nvU-LG-W9H"/>
-                    <exclude reference="2Go-US-uTg"/>
-                    <exclude reference="f9z-AY-YfZ"/>
-                    <exclude reference="pRa-C3-c6H"/>
-                    <exclude reference="yXc-bQ-Tx4"/>
                     <exclude reference="2CY-FB-98z"/>
                     <exclude reference="IO1-Ru-wzA"/>
                     <exclude reference="Pdy-ln-Qcm"/>
@@ -305,6 +277,10 @@
                     <include reference="dlT-Cx-RkD"/>
                 </mask>
                 <mask key="constraints">
+                    <include reference="2Go-US-uTg"/>
+                    <include reference="f9z-AY-YfZ"/>
+                    <include reference="pRa-C3-c6H"/>
+                    <include reference="yXc-bQ-Tx4"/>
                     <include reference="7LG-fq-ALj"/>
                     <include reference="eT6-MR-wxx"/>
                     <include reference="fLX-U1-vKh"/>
@@ -312,10 +288,6 @@
                     <include reference="VVN-sk-FuG"/>
                     <include reference="Vcb-Fj-IJC"/>
                     <include reference="nvU-LG-W9H"/>
-                    <include reference="2Go-US-uTg"/>
-                    <include reference="f9z-AY-YfZ"/>
-                    <include reference="pRa-C3-c6H"/>
-                    <include reference="yXc-bQ-Tx4"/>
                     <include reference="2CY-FB-98z"/>
                     <include reference="IO1-Ru-wzA"/>
                     <include reference="Pdy-ln-Qcm"/>

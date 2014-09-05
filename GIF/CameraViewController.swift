@@ -19,7 +19,7 @@ class CameraViewController: UIViewController, PreviewViewDelegate, SCRecorderDel
     let disabledIconColor: UIColor = UIColor.whiteColor().colorWithAlphaComponent(0.5)
     
     var elapsedTime: Float64 {
-        let time = CMTimeGetSeconds(recorder.recordSession.currentRecordDuration)
+        let time = CMTimeGetSeconds(recordSession.currentRecordDuration)
             return min(time, maxTime)
     }
     
@@ -88,13 +88,12 @@ class CameraViewController: UIViewController, PreviewViewDelegate, SCRecorderDel
         icon.addAttribute(NSForegroundColorAttributeName, value: self.disabledIconColor)
         return icon
         }()
-    
+
     @IBOutlet weak var previewView: PreviewView!
     @IBOutlet weak var closeButton: UIButton!
     @IBOutlet weak var changeCameraButton: UIButton!
     @IBOutlet weak var saveButton: UIButton!
     @IBOutlet weak var progressView: ProgressView!
-    @IBOutlet weak var timeLabel: UILabel!
     
     //MARK: Lifecycle
     
@@ -169,7 +168,6 @@ class CameraViewController: UIViewController, PreviewViewDelegate, SCRecorderDel
     func updateUI() {
         progressView.progress = elapsedPercent
         saveButton.enabled = elapsedTime > 0.0
-        timeLabel.text = numberFormatter.stringFromNumber(elapsedTime)
     }
     
     //MARK: Preview Delegate
@@ -181,9 +179,12 @@ class CameraViewController: UIViewController, PreviewViewDelegate, SCRecorderDel
     }
     
     func didReleasePreviewView(view: PreviewView) {
+        
         if recorder.isRecording {
             self.recorder.pause()
         }
+        
+        updateUI()
     }
     
     //MARK: Recorder Delegate
@@ -194,6 +195,10 @@ class CameraViewController: UIViewController, PreviewViewDelegate, SCRecorderDel
             recorder.pause()
         }
         
+        updateUI()
+    }
+ 
+    func recorder(recorder: SCRecorder!, didEndRecordSegment recordSession: SCRecordSession!, segmentIndex: Int, error: NSError!) {
         updateUI()
     }
     
