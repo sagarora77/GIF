@@ -175,11 +175,15 @@ class CameraViewController: UIViewController, PreviewViewDelegate, SCRecorderDel
         
         let gifOutputURL = documentsDirURL.URLByAppendingPathComponent("\(seconds)").URLByAppendingPathExtension("gif")
         
+        let hud = MBProgressHUD.showHUDAddedTo(view, animated: true)
+
         recorder.pause() {
             self.recordSession.endSession() { (error) -> Void in
                 self.exporter = Exporter(sourceURL: self.recordSession.outputUrl, destinationURL: gifOutputURL)
                 self.exporter?.createGIF({ (progress) -> () in
                 }, completion: { () -> () in
+                    hud.hide(true)
+                    copyAsyncToClipboard(gifOutputURL)
                     self.dismissViewControllerAnimated(true, completion: nil);
                 })
             }

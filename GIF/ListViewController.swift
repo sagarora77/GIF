@@ -76,10 +76,13 @@ class ListViewController: UICollectionViewController, UICollectionViewDelegateFl
     func reloadFiles() {
         getDocumentsDirectoryContents() { (urls: [NSURL]) -> () in
             
-            self.urls = urls
+            self.urls = sorted(urls) { (a, b) -> Bool in
+                return a.lastPathComponent > b.lastPathComponent
+            }
+            
             self.collectionView?.reloadData()
             
-            if urls.count == 0 {
+            if self.urls?.count == 0 {
                 self.showCamera(false)
             }
             
