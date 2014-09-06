@@ -75,8 +75,14 @@ class ListViewController: UICollectionViewController, UICollectionViewDelegateFl
     
     func reloadFiles() {
         getDocumentsDirectoryContents() { (urls: [NSURL]) -> () in
+            
             self.urls = urls
             self.collectionView?.reloadData()
+            
+            if urls.count == 0 {
+                self.showCamera(false)
+            }
+            
         }
     }
     
@@ -118,15 +124,19 @@ class ListViewController: UICollectionViewController, UICollectionViewDelegateFl
     // MARK: Pull To Refresh
     
     func pullToRefreshViewDidStartLoading(view: SSPullToRefreshView!) {
-        
-        let viewController = CameraViewController(nibName: "CameraViewController", bundle: NSBundle.mainBundle())
+        showCamera(true)
+    }
     
+    // MARK: Camera Presentation
+    
+    func showCamera(animated: Bool) {
+        let viewController = CameraViewController(nibName: "CameraViewController", bundle: NSBundle.mainBundle())
+        
         viewController.openSession() {
-            self.presentViewController(viewController, animated: true) {
+            self.presentViewController(viewController, animated: animated) {
                 self.pullToRefreshView.finishLoading()
             }
         }
-        
     }
     
     // MARK: UICollectionViewDataSource

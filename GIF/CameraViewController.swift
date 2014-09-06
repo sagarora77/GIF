@@ -41,8 +41,11 @@ class CameraViewController: UIViewController, PreviewViewDelegate, SCRecorderDel
         return recorder
         }()
     
+    var exporter: Exporter?
+    
     lazy var recordSession: SCRecordSession = {
         let session = SCRecordSession()
+        session.videoSizeAsSquare = true
         return session
         }()
     
@@ -164,6 +167,23 @@ class CameraViewController: UIViewController, PreviewViewDelegate, SCRecorderDel
     }
     
     @IBAction func save(sender: UIButton) {
+        
+        let documentsDir = NSFileManager.defaultManager().publicDataPath()
+        let documentsDirURL = NSURL(fileURLWithPath: documentsDir)
+        
+        let seconds = Int(NSDate().timeIntervalSince1970)
+        
+        let gifOutputURL = documentsDirURL.URLByAppendingPathComponent("\(seconds)").URLByAppendingPathExtension("gif")
+        
+        recorder.pause() {
+            self.recordSession.endSession() { (error) -> Void in
+                self.exporter = Exporter(sourceURL: self.recordSession.outputUrl, destinationURL: gifOutputURL)
+                self.exporter?.createGIF({ (progress) -> () in
+                }, completion: { () -> () in
+                    self.dismissViewControllerAnimated(true, completion: nil);
+                })
+            }
+        }
     }
     
     //MARK: UI Updates
