@@ -18,12 +18,12 @@
 		B82F564519B9303800AF422E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82F564419B9303800AF422E /* AppDelegate.swift */; };
 		B82F564719B9303800AF422E /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82F564619B9303800AF422E /* ListViewController.swift */; };
 		B82F564A19B9303800AF422E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B82F564819B9303800AF422E /* Main.storyboard */; };
-		B82F564C19B9303800AF422E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B82F564B19B9303800AF422E /* Images.xcassets */; };
 		B82F566219B930D100AF422E /* Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82F566119B930D100AF422E /* Cell.swift */; };
 		B89E3E6C19B95A7F00A33D4F /* FLAnimatedImage.m in Sources */ = {isa = PBXBuildFile; fileRef = B89E3E6919B95A7F00A33D4F /* FLAnimatedImage.m */; };
 		B89E3E6D19B95A7F00A33D4F /* FLAnimatedImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = B89E3E6B19B95A7F00A33D4F /* FLAnimatedImageView.m */; };
 		B8A2BB5619BA99CB00147554 /* Globals.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A2BB5519BA99CB00147554 /* Globals.swift */; };
 		B8A2BB5A19BD066B00147554 /* UIActionSheet+NickBlocks.m in Sources */ = {isa = PBXBuildFile; fileRef = B8A2BB5919BD066B00147554 /* UIActionSheet+NickBlocks.m */; };
+		B8A2BB5C19BD3EBF00147554 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B8A2BB5B19BD3EBF00147554 /* Images.xcassets */; };
 		F038F43CA8194F9DB5FD60BD /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F65923E97E374DBFA9A53DB9 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -42,7 +42,6 @@
 		B82F564419B9303800AF422E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B82F564619B9303800AF422E /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		B82F564919B9303800AF422E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		B82F564B19B9303800AF422E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		B82F566119B930D100AF422E /* Cell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cell.swift; sourceTree = "<group>"; };
 		B82F566419B931BE00AF422E /* ObjCBridging.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ObjCBridging.h; sourceTree = "<group>"; };
 		B89E3E6819B95A7F00A33D4F /* FLAnimatedImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLAnimatedImage.h; sourceTree = "<group>"; };
@@ -52,6 +51,7 @@
 		B8A2BB5519BA99CB00147554 /* Globals.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Globals.swift; sourceTree = "<group>"; };
 		B8A2BB5819BD066B00147554 /* UIActionSheet+NickBlocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIActionSheet+NickBlocks.h"; sourceTree = "<group>"; };
 		B8A2BB5919BD066B00147554 /* UIActionSheet+NickBlocks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIActionSheet+NickBlocks.m"; sourceTree = "<group>"; };
+		B8A2BB5B19BD3EBF00147554 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		F65923E97E374DBFA9A53DB9 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -156,9 +156,9 @@
 				B82F566419B931BE00AF422E /* ObjCBridging.h */,
 				B829D7BC19BA78110027327A /* Lato-Light.ttf */,
 				B8254DC319B995D600BFDCD9 /* Lato-Regular.ttf */,
-				B82F564B19B9303800AF422E /* Images.xcassets */,
 				B82F564319B9303800AF422E /* Info.plist */,
 				B8254DB319B9664000BFDCD9 /* Localizable.strings */,
+				B8A2BB5B19BD3EBF00147554 /* Images.xcassets */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -264,9 +264,9 @@
 				B82F564A19B9303800AF422E /* Main.storyboard in Resources */,
 				B8254DC419B995D600BFDCD9 /* Lato-Regular.ttf in Resources */,
 				B8254DBC19B968E300BFDCD9 /* CameraViewController.xib in Resources */,
+				B8A2BB5C19BD3EBF00147554 /* Images.xcassets in Resources */,
 				B829D7BD19BA78110027327A /* Lato-Light.ttf in Resources */,
 				B8254DB419B9664000BFDCD9 /* Localizable.strings in Resources */,
-				B82F564C19B9303800AF422E /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -420,12 +420,12 @@
 			baseConfigurationReference = 1D3BA71B03C64DA9B4A0F275 /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = GIF/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "814FD552-DD1C-46A9-910F-DDC3A6AA0E41";
 				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/GIF/ObjCBridging.h";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -434,12 +434,12 @@
 			baseConfigurationReference = 1D3BA71B03C64DA9B4A0F275 /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = GIF/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "814FD552-DD1C-46A9-910F-DDC3A6AA0E41";
 				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/GIF/ObjCBridging.h";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
