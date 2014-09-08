@@ -7,5 +7,6 @@ pod 'StandardPaths', '~> 1.5'
 pod 'SCRecorder', '~> 2.0'
 pod 'FontAwesomeKit', '~> 2.1'
 pod 'MBProgressHUD', '~> 0.9'
+pod 'UIAlertView-Blocks', '~> 1.0'
 pod 'AcknowledgementsBundle', '~> 0.0'
 

@@ -19,6 +19,7 @@ PODS:
   - SCRecorder (2.0.14)
   - SSPullToRefresh (1.2.0)
   - StandardPaths (1.5.6)
+  - UIAlertView-Blocks (1.0)
 
 DEPENDENCIES:
   - AcknowledgementsBundle (~> 0.0)
@@ -27,6 +28,7 @@ DEPENDENCIES:
   - SCRecorder (~> 2.0)
   - SSPullToRefresh (~> 1.2)
   - StandardPaths (~> 1.5)
+  - UIAlertView-Blocks (~> 1.0)
 
 SPEC CHECKSUMS:
   AcknowledgementsBundle: feacb138b93fd8b652b633a5582cb8e3b55194ed
@@ -35,5 +37,6 @@ SPEC CHECKSUMS:
   SCRecorder: 4f7f0d57458668c60d53e70fe89019a1580595fb
   SSPullToRefresh: bb513a1ccbf08fdd67e4139bc1bbe3fc2ed34228
   StandardPaths: 009f9c1699e26e46b2fb1a46b8bacc693d34460e
+  UIAlertView-Blocks: f3271e84372beb97aea115cd1fb26ae66457f12f
 
 COCOAPODS: 0.33.1

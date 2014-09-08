@@ -22,7 +22,8 @@
 		B82F566219B930D100AF422E /* Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82F566119B930D100AF422E /* Cell.swift */; };
 		B89E3E6C19B95A7F00A33D4F /* FLAnimatedImage.m in Sources */ = {isa = PBXBuildFile; fileRef = B89E3E6919B95A7F00A33D4F /* FLAnimatedImage.m */; };
 		B89E3E6D19B95A7F00A33D4F /* FLAnimatedImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = B89E3E6B19B95A7F00A33D4F /* FLAnimatedImageView.m */; };
-		B8A2BB5619BA99CB00147554 /* GIFCopy.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A2BB5519BA99CB00147554 /* GIFCopy.swift */; };
+		B8A2BB5619BA99CB00147554 /* Globals.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A2BB5519BA99CB00147554 /* Globals.swift */; };
+		B8A2BB5A19BD066B00147554 /* UIActionSheet+NickBlocks.m in Sources */ = {isa = PBXBuildFile; fileRef = B8A2BB5919BD066B00147554 /* UIActionSheet+NickBlocks.m */; };
 		F038F43CA8194F9DB5FD60BD /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F65923E97E374DBFA9A53DB9 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -48,7 +49,9 @@
 		B89E3E6919B95A7F00A33D4F /* FLAnimatedImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLAnimatedImage.m; sourceTree = "<group>"; };
 		B89E3E6A19B95A7F00A33D4F /* FLAnimatedImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLAnimatedImageView.h; sourceTree = "<group>"; };
 		B89E3E6B19B95A7F00A33D4F /* FLAnimatedImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLAnimatedImageView.m; sourceTree = "<group>"; };
-		B8A2BB5519BA99CB00147554 /* GIFCopy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GIFCopy.swift; sourceTree = "<group>"; };
+		B8A2BB5519BA99CB00147554 /* Globals.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Globals.swift; sourceTree = "<group>"; };
+		B8A2BB5819BD066B00147554 /* UIActionSheet+NickBlocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIActionSheet+NickBlocks.h"; sourceTree = "<group>"; };
+		B8A2BB5919BD066B00147554 /* UIActionSheet+NickBlocks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIActionSheet+NickBlocks.m"; sourceTree = "<group>"; };
 		F65923E97E374DBFA9A53DB9 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -113,7 +116,7 @@
 			children = (
 				B82F564419B9303800AF422E /* AppDelegate.swift */,
 				B829D7BF19BA78880027327A /* Exporter.swift */,
-				B8A2BB5519BA99CB00147554 /* GIFCopy.swift */,
+				B8A2BB5519BA99CB00147554 /* Globals.swift */,
 			);
 			name = "Other Classes";
 			sourceTree = "<group>";
@@ -163,6 +166,7 @@
 		B82F566319B931AB00AF422E /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				B8A2BB5719BD065700147554 /* Categories */,
 				B829D7BE19BA78580027327A /* Other Classes */,
 				B8254DB519B9681A00BFDCD9 /* View Controllers */,
 				B8254DB619B9682300BFDCD9 /* Views */,
@@ -187,6 +191,15 @@
 				B89E3E6B19B95A7F00A33D4F /* FLAnimatedImageView.m */,
 			);
 			name = Modules;
+			sourceTree = "<group>";
+		};
+		B8A2BB5719BD065700147554 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				B8A2BB5819BD066B00147554 /* UIActionSheet+NickBlocks.h */,
+				B8A2BB5919BD066B00147554 /* UIActionSheet+NickBlocks.m */,
+			);
+			name = Categories;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -300,10 +313,11 @@
 				B89E3E6C19B95A7F00A33D4F /* FLAnimatedImage.m in Sources */,
 				B829D7C019BA78880027327A /* Exporter.swift in Sources */,
 				B8254DC019B985D500BFDCD9 /* PreviewView.swift in Sources */,
-				B8A2BB5619BA99CB00147554 /* GIFCopy.swift in Sources */,
+				B8A2BB5619BA99CB00147554 /* Globals.swift in Sources */,
 				B82F564719B9303800AF422E /* ListViewController.swift in Sources */,
 				B89E3E6D19B95A7F00A33D4F /* FLAnimatedImageView.m in Sources */,
 				B82F564519B9303800AF422E /* AppDelegate.swift in Sources */,
+				B8A2BB5A19BD066B00147554 /* UIActionSheet+NickBlocks.m in Sources */,
 				B8254DBE19B9829100BFDCD9 /* ProgressView.swift in Sources */,
 				B82F566219B930D100AF422E /* Cell.swift in Sources */,
 				B8254DBB19B968E300BFDCD9 /* CameraViewController.swift in Sources */,

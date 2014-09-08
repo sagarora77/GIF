@@ -1,20 +1,22 @@
-//
-//  ViewController.swift
-//  GIF
-//
-//  Created by Nick Lee on 9/4/14.
-//  Copyright (c) 2014 Nicholas Lee Designs, LLC. All rights reserved.
-//
-
-import UIKit
-
-class ListViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout, SSPullToRefreshViewDelegate {
+ //
+ //  ViewController.swift
+ //  GIF
+ //
+ //  Created by Nick Lee on 9/4/14.
+ //  Copyright (c) 2014 Nicholas Lee Designs, LLC. All rights reserved.
+ //
+ 
+ import UIKit
+ 
+ class ListViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout, SSPullToRefreshViewDelegate, CellDelegate {
     
     // MARK: Properties
     
     var urls: [NSURL]?
     
     let cellHeight: CGFloat = 160.0
+    
+    let instructionLabelHeight: CGFloat = 44.0
     
     lazy var pullToRefreshView: SSPullToRefreshView = {
         let view = SSPullToRefreshView(scrollView: self.collectionView, delegate: self)
@@ -24,8 +26,19 @@ class ListViewController: UICollectionViewController, UICollectionViewDelegateFl
     lazy var pullToRefreshContentView: SSPullToRefreshSimpleContentView = {
         let view = SSPullToRefreshSimpleContentView()
         view.statusLabel.textColor = UIColor.whiteColor()
+        view.statusLabel.font = UIFont(name: "Lato-Light", size: 17.0)
         view.activityIndicatorView.color = UIColor.whiteColor()
         return view
+        }()
+    
+    lazy var instructionLabel: UILabel = {
+        let label = UILabel()
+        label.userInteractionEnabled = false
+        label.text = "Pull down to create a gif"
+        label.textAlignment = .Center
+        label.textColor = UIColor.whiteColor()
+        label.font = UIFont(name: "Lato-Light", size: 17.0)
+        return label
         }()
     
     lazy var cellSize: CGSize = {
@@ -58,11 +71,17 @@ class ListViewController: UICollectionViewController, UICollectionViewDelegateFl
         
         pullToRefreshView.contentView = pullToRefreshContentView
         
+        collectionView.addSubview(instructionLabel)
     }
     
     override func viewWillAppear(animated: Bool) {
-        super.viewDidAppear(animated)
+        super.viewWillAppear(animated)
         reloadFiles()
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        instructionLabel.frame = CGRect(x: 0, y: view.frame.height - instructionLabelHeight, width: view.frame.width, height: instructionLabelHeight)
     }
     
     // MARK: Status Bar
@@ -82,9 +101,7 @@ class ListViewController: UICollectionViewController, UICollectionViewDelegateFl
             
             self.collectionView?.reloadData()
             
-            if self.urls?.count == 0 {
-                self.showCamera(false)
-            }
+            
             
         }
     }
@@ -145,14 +162,7 @@ class ListViewController: UICollectionViewController, UICollectionViewDelegateFl
     // MARK: UICollectionViewDataSource
     
     override func numberOfSectionsInCollectionView(collectionView: UICollectionView!) -> Int {
-        
-        var count = 0;
-        
-        if let arr = urls {
-            count = arr.count
-        }
-        
-        return min(count, 1)
+        return 1
     }
     
     override func collectionView(collectionView: UICollectionView!, numberOfItemsInSection section: Int) -> Int {
@@ -170,8 +180,9 @@ class ListViewController: UICollectionViewController, UICollectionViewDelegateFl
         
         let cell = collectionView?.dequeueReusableCellWithReuseIdentifier(NSStringFromClass(Cell), forIndexPath: indexPath) as Cell?
         
-        let url = self.urls?[indexPath.row]
+        let url = self.urls?[indexPath.item]
         
+        cell?.delegate = self
         cell?.imageURL = url
         
         return cell
@@ -180,15 +191,11 @@ class ListViewController: UICollectionViewController, UICollectionViewDelegateFl
     // MARK: UICollectionViewDelegate
     
     override func collectionView(collectionView: UICollectionView!, shouldSelectItemAtIndexPath indexPath: NSIndexPath!) -> Bool {
-        
         return false
-        
     }
     
     override func collectionView(collectionView: UICollectionView!, shouldHighlightItemAtIndexPath indexPath: NSIndexPath!) -> Bool {
-        
         return false
-        
     }
     
     // MARK: UICollectionViewDelegateFlowLayout
@@ -196,5 +203,45 @@ class ListViewController: UICollectionViewController, UICollectionViewDelegateFl
     func collectionView(collectionView: UICollectionView!, layout collectionViewLayout: UICollectionViewLayout!, sizeForItemAtIndexPath indexPath: NSIndexPath!) -> CGSize {
         return cellSize
     }
-}
-
+    
+    // MARK: CellDelegate
+    
+    func cellTapped(cell: Cell) {
+        
+        let indexPath = collectionView.indexPathForCell(cell)
+        collectionView.scrollToItemAtIndexPath(indexPath, atScrollPosition: .Top, animated: true)
+        
+        let url = urls?[indexPath.item]
+        
+        cell.imageView.alpha = 0.5
+        
+        let cancelItem = RIButtonItem.itemWithLabel("Cancel") as RIButtonItem
+        
+        let copyItem = RIButtonItem.itemWithLabel("Copy to Clipboard", action: {
+            
+            copyAsyncToClipboard(url!)
+            
+        }) as RIButtonItem
+        
+        let deleteItem = RIButtonItem.itemWithLabel("Delete") as RIButtonItem
+        deleteItem.action = {
+            
+            self.collectionView.performBatchUpdates({ () -> Void in
+                NSFileManager.defaultManager().removeItemAtURL(url, error: nil)
+                let nsURLS: NSArray = self.urls!
+                let urlIdx = nsURLS.indexOfObject(url!)
+                self.urls?.removeAtIndex(urlIdx)
+                self.collectionView.deleteItemsAtIndexPaths([indexPath])
+                }, completion: nil)
+            
+        }
+        
+        let actionSheet = UIActionSheet(title: nil, cancelButtonItem: cancelItem, destructiveButtonItem: deleteItem, otherButtonItem: copyItem)
+        
+        actionSheet.dismissalAction = {
+            cell.imageView.alpha = 1.0
+        }
+        actionSheet.showInView(view.window)
+    }
+ }
+ 

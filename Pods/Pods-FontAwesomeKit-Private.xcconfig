@@ -1,5 +1,5 @@
 #include "Pods-FontAwesomeKit.xcconfig"
 GCC_PREPROCESSOR_DEFINITIONS = COCOAPODS=1
-HEADER_SEARCH_PATHS = "${PODS_ROOT}/BuildHeaders" "${PODS_ROOT}/BuildHeaders/FontAwesomeKit" "${PODS_ROOT}/Headers" "${PODS_ROOT}/Headers/AcknowledgementsBundle" "${PODS_ROOT}/Headers/FontAwesomeKit" "${PODS_ROOT}/Headers/MBProgressHUD" "${PODS_ROOT}/Headers/SCRecorder" "${PODS_ROOT}/Headers/SSPullToRefresh" "${PODS_ROOT}/Headers/StandardPaths"
+HEADER_SEARCH_PATHS = "${PODS_ROOT}/BuildHeaders" "${PODS_ROOT}/BuildHeaders/FontAwesomeKit" "${PODS_ROOT}/Headers" "${PODS_ROOT}/Headers/AcknowledgementsBundle" "${PODS_ROOT}/Headers/FontAwesomeKit" "${PODS_ROOT}/Headers/MBProgressHUD" "${PODS_ROOT}/Headers/SCRecorder" "${PODS_ROOT}/Headers/SSPullToRefresh" "${PODS_ROOT}/Headers/StandardPaths" "${PODS_ROOT}/Headers/UIAlertView-Blocks"
 OTHER_LDFLAGS = -ObjC ${PODS_FONTAWESOMEKIT_OTHER_LDFLAGS}
 PODS_ROOT = ${SRCROOT}

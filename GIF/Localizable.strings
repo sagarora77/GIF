@@ -6,5 +6,5 @@
   Copyright (c) 2014 Nicholas Lee Designs, LLC. All rights reserved.
 */
 
-"Pull down to refresh" = "pull down to make a gif";
-"Release to refresh" = "release to make a gif";
+"Pull down to refresh" = "keep pulling";
+"Release to refresh" = "release!";

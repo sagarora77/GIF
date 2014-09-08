@@ -8,10 +8,18 @@
 
 import Foundation
 
+let GIFType = "com.compuserve.gif"
+
 var GIFOperationQueue: NSOperationQueue = {
     let queue = NSOperationQueue()
     queue.maxConcurrentOperationCount = 1
     return queue
+    }()
+
+var GIFCache: NSCache = {
+    let cache = NSCache()
+    cache.countLimit = 25
+    return cache
     }()
 
 func copyAsyncToClipboard(url: NSURL) {
@@ -22,7 +30,7 @@ func copyAsyncToClipboard(url: NSURL) {
         
         let data = NSData(contentsOfURL: url)
         let pasteboard = UIPasteboard.generalPasteboard()
-        pasteboard.setData(data, forPasteboardType: "com.compuserve.gif")
+        pasteboard.setData(data, forPasteboardType: GIFType)
         
         UIApplication.sharedApplication().endBackgroundTask(taskID)
         

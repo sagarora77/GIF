@@ -72,3 +72,9 @@
 #define COCOAPODS_VERSION_MINOR_StandardPaths 5
 #define COCOAPODS_VERSION_PATCH_StandardPaths 6
 
+// UIAlertView-Blocks
+#define COCOAPODS_POD_AVAILABLE_UIAlertView_Blocks
+#define COCOAPODS_VERSION_MAJOR_UIAlertView_Blocks 1
+#define COCOAPODS_VERSION_MINOR_UIAlertView_Blocks 0
+#define COCOAPODS_VERSION_PATCH_UIAlertView_Blocks 0
+

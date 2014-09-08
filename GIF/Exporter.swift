@@ -18,11 +18,11 @@ func rounded(input: Float) -> Float {
 class Exporter {
     
     var fps = 15
+    let tolerance: Float64 = 0.02
     var sourceURL: NSURL
     var destinationURL: NSURL
     var maximumSize = CGSize(width: 180, height: 180)
     var generator: AVAssetImageGenerator?
-    
     
     init(sourceURL: NSURL, destinationURL: NSURL) {
         self.sourceURL = sourceURL
@@ -41,8 +41,11 @@ class Exporter {
             let frameDuration = Float(duration) / Float(frameCount)
             
             self.generator = AVAssetImageGenerator(asset: asset)
-            self.generator?.requestedTimeToleranceAfter = kCMTimeZero
-            self.generator?.requestedTimeToleranceBefore = kCMTimeZero
+            
+            let tolerance = CMTimeMakeWithSeconds(self.tolerance, durationCMTime.timescale)
+            
+            self.generator?.requestedTimeToleranceAfter = tolerance
+            self.generator?.requestedTimeToleranceBefore = tolerance
             
             self.generator?.maximumSize = self.maximumSize
             

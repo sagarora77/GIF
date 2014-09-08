@@ -1,5 +1,5 @@
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
-HEADER_SEARCH_PATHS = "${PODS_ROOT}/Headers" "${PODS_ROOT}/Headers/AcknowledgementsBundle" "${PODS_ROOT}/Headers/FontAwesomeKit" "${PODS_ROOT}/Headers/MBProgressHUD" "${PODS_ROOT}/Headers/SCRecorder" "${PODS_ROOT}/Headers/SSPullToRefresh" "${PODS_ROOT}/Headers/StandardPaths"
-OTHER_CFLAGS = $(inherited) -isystem "${PODS_ROOT}/Headers" -isystem "${PODS_ROOT}/Headers/AcknowledgementsBundle" -isystem "${PODS_ROOT}/Headers/FontAwesomeKit" -isystem "${PODS_ROOT}/Headers/MBProgressHUD" -isystem "${PODS_ROOT}/Headers/SCRecorder" -isystem "${PODS_ROOT}/Headers/SSPullToRefresh" -isystem "${PODS_ROOT}/Headers/StandardPaths"
+HEADER_SEARCH_PATHS = "${PODS_ROOT}/Headers" "${PODS_ROOT}/Headers/AcknowledgementsBundle" "${PODS_ROOT}/Headers/FontAwesomeKit" "${PODS_ROOT}/Headers/MBProgressHUD" "${PODS_ROOT}/Headers/SCRecorder" "${PODS_ROOT}/Headers/SSPullToRefresh" "${PODS_ROOT}/Headers/StandardPaths" "${PODS_ROOT}/Headers/UIAlertView-Blocks"
+OTHER_CFLAGS = $(inherited) -isystem "${PODS_ROOT}/Headers" -isystem "${PODS_ROOT}/Headers/AcknowledgementsBundle" -isystem "${PODS_ROOT}/Headers/FontAwesomeKit" -isystem "${PODS_ROOT}/Headers/MBProgressHUD" -isystem "${PODS_ROOT}/Headers/SCRecorder" -isystem "${PODS_ROOT}/Headers/SSPullToRefresh" -isystem "${PODS_ROOT}/Headers/StandardPaths" -isystem "${PODS_ROOT}/Headers/UIAlertView-Blocks"
 OTHER_LDFLAGS = -ObjC -framework CoreGraphics -framework CoreText -framework UIKit
 PODS_ROOT = ${SRCROOT}/Pods

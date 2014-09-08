@@ -49,11 +49,6 @@ class CameraViewController: UIViewController, PreviewViewDelegate, SCRecorderDel
         return session
         }()
     
-    lazy var avBackgroundQueue: dispatch_queue_t = {
-        let queue = dispatch_queue_create("videoQueue", DISPATCH_QUEUE_SERIAL)
-        return queue
-        }();
-    
     lazy var numberFormatter: NSNumberFormatter = {
         let formatter = NSNumberFormatter()
         formatter.numberStyle = NSNumberFormatterStyle.DecimalStyle
@@ -141,12 +136,16 @@ class CameraViewController: UIViewController, PreviewViewDelegate, SCRecorderDel
     //MARK: Camera Initialization
     
     func openSession(completion: () -> ()) {
+        
         recorder.openSession { (sessionError, audioError, videoError, photoError) -> Void in
+            
             self.recorder.recordSession = self.recordSession
-            dispatch_async(self.avBackgroundQueue, {
+            
+            GIFOperationQueue.addOperationWithBlock() {
                 self.recorder.startRunningSession()
-                dispatch_async(dispatch_get_main_queue(), completion)
-            })
+                NSOperationQueue.mainQueue().addOperationWithBlock(completion)
+            }
+            
         }
     }
     
@@ -154,10 +153,12 @@ class CameraViewController: UIViewController, PreviewViewDelegate, SCRecorderDel
     
     @IBAction func close(sender: UIButton) {
         dismissViewControllerAnimated(true, completion: { () -> Void in
-            dispatch_async(self.avBackgroundQueue, {
+            
+            GIFOperationQueue.addOperationWithBlock() {
                 self.recorder.endRunningSession()
                 self.recorder.closeSession()
-            })
+            }
+            
         })
     }
     
@@ -183,7 +184,6 @@ class CameraViewController: UIViewController, PreviewViewDelegate, SCRecorderDel
                 self.exporter?.createGIF({ (progress) -> () in
                 }, completion: { () -> () in
                     hud.hide(true)
-                    copyAsyncToClipboard(gifOutputURL)
                     self.dismissViewControllerAnimated(true, completion: nil);
                 })
             }
