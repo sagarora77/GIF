@@ -8,6 +8,7 @@
 
 import UIKit
 import AVFoundation
+import CoreMedia
 
 class CameraViewController: UIViewController, PreviewViewDelegate, SCRecorderDelegate {
     

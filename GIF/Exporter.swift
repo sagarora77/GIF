@@ -10,6 +10,7 @@ import Foundation
 import AVFoundation
 import ImageIO
 import MobileCoreServices
+import CoreMedia
 
 func rounded(input: Float) -> Float {
     return roundf(input * 100.0) / 100.0

@@ -19,6 +19,7 @@
 		B82F564719B9303800AF422E /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82F564619B9303800AF422E /* ListViewController.swift */; };
 		B82F564A19B9303800AF422E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B82F564819B9303800AF422E /* Main.storyboard */; };
 		B82F566219B930D100AF422E /* Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82F566119B930D100AF422E /* Cell.swift */; };
+		B884929C19BD509200609197 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B884929B19BD509200609197 /* Default-568h@2x.png */; };
 		B89E3E6C19B95A7F00A33D4F /* FLAnimatedImage.m in Sources */ = {isa = PBXBuildFile; fileRef = B89E3E6919B95A7F00A33D4F /* FLAnimatedImage.m */; };
 		B89E3E6D19B95A7F00A33D4F /* FLAnimatedImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = B89E3E6B19B95A7F00A33D4F /* FLAnimatedImageView.m */; };
 		B8A2BB5619BA99CB00147554 /* Globals.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A2BB5519BA99CB00147554 /* Globals.swift */; };
@@ -44,6 +45,7 @@
 		B82F564919B9303800AF422E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B82F566119B930D100AF422E /* Cell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cell.swift; sourceTree = "<group>"; };
 		B82F566419B931BE00AF422E /* ObjCBridging.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ObjCBridging.h; sourceTree = "<group>"; };
+		B884929B19BD509200609197 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		B89E3E6819B95A7F00A33D4F /* FLAnimatedImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLAnimatedImage.h; sourceTree = "<group>"; };
 		B89E3E6919B95A7F00A33D4F /* FLAnimatedImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLAnimatedImage.m; sourceTree = "<group>"; };
 		B89E3E6A19B95A7F00A33D4F /* FLAnimatedImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLAnimatedImageView.h; sourceTree = "<group>"; };
@@ -124,6 +126,7 @@
 		B82F563619B9303800AF422E = {
 			isa = PBXGroup;
 			children = (
+				B884929B19BD509200609197 /* Default-568h@2x.png */,
 				B82F564119B9303800AF422E /* GIF */,
 				B82F564019B9303800AF422E /* Products */,
 				1D3BA71B03C64DA9B4A0F275 /* Pods.xcconfig */,
@@ -266,6 +269,7 @@
 				B8254DBC19B968E300BFDCD9 /* CameraViewController.xib in Resources */,
 				B8A2BB5C19BD3EBF00147554 /* Images.xcassets in Resources */,
 				B829D7BD19BA78110027327A /* Lato-Light.ttf in Resources */,
+				B884929C19BD509200609197 /* Default-568h@2x.png in Resources */,
 				B8254DB419B9664000BFDCD9 /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
