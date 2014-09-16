@@ -44,16 +44,11 @@
     lazy var cellSize: CGSize = {
         
         let screen = UIScreen.mainScreen()
-        let bounds = screen?.bounds
-        let size = bounds?.size
+        let bounds = screen.bounds
+        var theSize = bounds.size
         
-        if var theSize = size {
-            theSize.height = self.cellHeight
-            return theSize
-        }
-        else {
-            return CGSizeZero
-        }
+        theSize.height = self.cellHeight
+        return theSize
         
         }()
     
@@ -64,14 +59,14 @@
         
         super.viewDidLoad()
         
-        collectionView.alwaysBounceVertical = true
-        collectionView.showsVerticalScrollIndicator = false
+        collectionView?.alwaysBounceVertical = true
+        collectionView?.showsVerticalScrollIndicator = false
         
-        collectionView.registerClass(Cell.self, forCellWithReuseIdentifier: NSStringFromClass(Cell))
+        collectionView?.registerClass(Cell.self, forCellWithReuseIdentifier: NSStringFromClass(Cell))
         
         pullToRefreshView.contentView = pullToRefreshContentView
         
-        collectionView.addSubview(instructionLabel)
+        collectionView?.addSubview(instructionLabel)
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -161,12 +156,11 @@
     
     // MARK: UICollectionViewDataSource
     
-    override func numberOfSectionsInCollectionView(collectionView: UICollectionView!) -> Int {
+    override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
         return 1
     }
     
-    override func collectionView(collectionView: UICollectionView!, numberOfItemsInSection section: Int) -> Int {
-        
+    override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         var count = 0;
         
         if let arr = urls {
@@ -176,25 +170,24 @@
         return count
     }
     
-    override func collectionView(collectionView: UICollectionView!, cellForItemAtIndexPath indexPath: NSIndexPath!) -> UICollectionViewCell! {
-        
-        let cell = collectionView?.dequeueReusableCellWithReuseIdentifier(NSStringFromClass(Cell), forIndexPath: indexPath) as Cell?
+    override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(NSStringFromClass(Cell), forIndexPath: indexPath) as Cell
         
         let url = self.urls?[indexPath.item]
         
-        cell?.delegate = self
-        cell?.imageURL = url
+        cell.delegate = self
+        cell.imageURL = url
         
         return cell
     }
     
     // MARK: UICollectionViewDelegate
     
-    override func collectionView(collectionView: UICollectionView!, shouldSelectItemAtIndexPath indexPath: NSIndexPath!) -> Bool {
+    override func collectionView(collectionView: UICollectionView, shouldSelectItemAtIndexPath indexPath: NSIndexPath) -> Bool {
         return false
     }
     
-    override func collectionView(collectionView: UICollectionView!, shouldHighlightItemAtIndexPath indexPath: NSIndexPath!) -> Bool {
+    override func collectionView(collectionView: UICollectionView, shouldHighlightItemAtIndexPath indexPath: NSIndexPath) -> Bool {
         return false
     }
     
@@ -207,41 +200,47 @@
     // MARK: CellDelegate
     
     func cellTapped(cell: Cell) {
-        
-        let indexPath = collectionView.indexPathForCell(cell)
-        collectionView.scrollToItemAtIndexPath(indexPath, atScrollPosition: .Top, animated: true)
-        
-        let url = urls?[indexPath.item]
-        
-        cell.imageView.alpha = 0.5
-        
-        let cancelItem = RIButtonItem.itemWithLabel("Cancel") as RIButtonItem
-        
-        let copyItem = RIButtonItem.itemWithLabel("Copy to Clipboard", action: {
+        if let indexPath = collectionView?.indexPathForCell(cell) {
+            collectionView?.scrollToItemAtIndexPath(indexPath, atScrollPosition: .Top, animated: true)
             
-            copyAsyncToClipboard(url!)
+            let url = urls?[indexPath.item]
             
-        }) as RIButtonItem
-        
-        let deleteItem = RIButtonItem.itemWithLabel("Delete") as RIButtonItem
-        deleteItem.action = {
+            cell.imageView.alpha = 0.5
             
-            self.collectionView.performBatchUpdates({ () -> Void in
-                NSFileManager.defaultManager().removeItemAtURL(url, error: nil)
-                let nsURLS: NSArray = self.urls!
-                let urlIdx = nsURLS.indexOfObject(url!)
-                self.urls?.removeAtIndex(urlIdx)
-                self.collectionView.deleteItemsAtIndexPaths([indexPath])
-                }, completion: nil)
+            let cancelItem = RIButtonItem.itemWithLabel("Cancel") as RIButtonItem
             
+            let copyItem = RIButtonItem.itemWithLabel("Copy to Clipboard", action: {
+                
+                copyAsyncToClipboard(url!)
+                
+            }) as RIButtonItem
+            
+            let deleteItem = RIButtonItem.itemWithLabel("Delete") as RIButtonItem
+            
+            deleteItem.action = {
+                self.deleteImage(url, indexPath: indexPath)
+            }
+            
+            let actionSheet = UIActionSheet(title: nil, cancelButtonItem: cancelItem, destructiveButtonItem: deleteItem, otherButtonItem: copyItem)
+            
+            actionSheet.dismissalAction = {
+                cell.imageView.alpha = 1.0
+            }
+            actionSheet.showInView(view.window)
         }
-        
-        let actionSheet = UIActionSheet(title: nil, cancelButtonItem: cancelItem, destructiveButtonItem: deleteItem, otherButtonItem: copyItem)
-        
-        actionSheet.dismissalAction = {
-            cell.imageView.alpha = 1.0
-        }
-        actionSheet.showInView(view.window)
     }
+    
+    func deleteImage(url: NSURL?, indexPath: NSIndexPath) {
+        self.collectionView?.performBatchUpdates({
+            
+            NSFileManager.defaultManager().removeItemAtURL(url!, error: nil)
+            let nsURLS: NSArray = self.urls!
+            let urlIdx = nsURLS.indexOfObject(url!)
+            self.urls?.removeAtIndex(urlIdx)
+            self.collectionView?.deleteItemsAtIndexPaths([indexPath])
+            
+            }, completion: { (finished) -> () in })
+    }
+    
  }
  

@@ -24,7 +24,9 @@ var GIFCache: NSCache = {
 
 func copyAsyncToClipboard(url: NSURL) {
     
-    let taskID = UIApplication.sharedApplication().beginBackgroundTaskWithExpirationHandler(nil)
+    let taskID = UIApplication.sharedApplication().beginBackgroundTaskWithExpirationHandler { () -> Void in
+        GIFOperationQueue.cancelAllOperations()
+    }
     
     GIFOperationQueue.addOperationWithBlock {
         
